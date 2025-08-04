@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Twitter, Github } from "lucide-react";
+import { Mail, Linkedin, Github } from "lucide-react";
 
 const ContactSection = () => {
   const contactMethods = [
@@ -15,16 +15,10 @@ const ContactSection = () => {
       href: "https://www.linkedin.com/in/valeriia-baranova-bolotova-lurunchik/",
     },
     {
-      icon: Twitter,
-      label: "Twitter",
-      value: "@ValeriiAI",
-      href: "https://twitter.com/valeriai",
-    },
-    {
       icon: Github,
       label: "GitHub",
-      value: "github.com/valeriiab",
-      href: "https://github.com/valeriiab",
+      value: "github.com/Lurunchik",
+      href: "https://github.com/Lurunchik",
     }
   ];
 
