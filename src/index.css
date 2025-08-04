@@ -8,46 +8,41 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Warm, approachable color palette */
-    --background: 37 25% 97%;
-    --foreground: 222 20% 15%;
+    /* Research paper aesthetic - minimal colors */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 20% 15%;
+    --card-foreground: 0 0% 8%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 20% 15%;
+    --popover-foreground: 0 0% 8%;
 
-    /* Warm academic blue */
-    --primary: 214 88% 45%;
+    /* Academic blue for links */
+    --primary: 220 80% 25%;
     --primary-foreground: 0 0% 100%;
-    --primary-soft: 214 60% 90%;
+    --primary-soft: 220 30% 95%;
 
-    /* Soft warm secondary */
-    --secondary: 37 35% 92%;
-    --secondary-foreground: 222 20% 25%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 15%;
 
-    --muted: 37 20% 94%;
-    --muted-foreground: 222 15% 55%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    /* Gentle accent coral */
-    --accent: 12 95% 75%;
-    --accent-foreground: 222 20% 15%;
-    --accent-soft: 12 45% 95%;
+    /* Subtle accent */
+    --accent: 0 0% 94%;
+    --accent-foreground: 0 0% 15%;
+    --accent-soft: 0 0% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 37 15% 88%;
-    --input: 37 15% 88%;
-    --ring: 214 88% 45%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 220 80% 25%;
 
-    /* Custom design tokens */
-    --gradient-warm: linear-gradient(135deg, hsl(214 88% 50%), hsl(12 85% 65%));
-    --gradient-soft: linear-gradient(180deg, hsl(37 35% 97%), hsl(37 25% 95%));
-    --shadow-gentle: 0 4px 20px -8px hsl(214 30% 20% / 0.15);
-    --shadow-warm: 0 8px 30px -12px hsl(12 50% 50% / 0.25);
-    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Academic paper styling */
+    --transition-smooth: all 0.2s ease;
 
     --radius: 0.5rem;
 
@@ -69,40 +64,36 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 222 25% 8%;
-    --foreground: 37 20% 92%;
+    --background: 0 0% 4%;
+    --foreground: 0 0% 95%;
 
-    --card: 222 20% 12%;
-    --card-foreground: 37 20% 92%;
+    --card: 0 0% 6%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 222 20% 12%;
-    --popover-foreground: 37 20% 92%;
+    --popover: 0 0% 6%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 214 85% 60%;
-    --primary-foreground: 222 25% 8%;
-    --primary-soft: 214 40% 20%;
+    --primary: 220 70% 65%;
+    --primary-foreground: 0 0% 4%;
+    --primary-soft: 220 20% 15%;
 
-    --secondary: 222 15% 15%;
-    --secondary-foreground: 37 20% 85%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 85%;
 
-    --muted: 222 12% 18%;
-    --muted-foreground: 37 10% 65%;
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 60%;
 
-    --accent: 12 80% 65%;
-    --accent-foreground: 222 25% 8%;
-    --accent-soft: 12 25% 15%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 90%;
+    --accent-soft: 0 0% 8%;
 
     --destructive: 0 75% 55%;
-    --destructive-foreground: 37 20% 92%;
+    --destructive-foreground: 0 0% 95%;
 
-    --border: 222 12% 22%;
-    --input: 222 12% 22%;
-    --ring: 214 85% 60%;
-
-    --gradient-warm: linear-gradient(135deg, hsl(214 85% 55%), hsl(12 75% 60%));
-    --gradient-soft: linear-gradient(180deg, hsl(222 20% 10%), hsl(222 25% 8%));
-    --shadow-gentle: 0 4px 20px -8px hsl(222 50% 5% / 0.4);
-    --shadow-warm: 0 8px 30px -12px hsl(12 50% 30% / 0.3);
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 220 70% 65%;
+  }
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;

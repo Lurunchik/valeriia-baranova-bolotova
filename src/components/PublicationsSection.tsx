@@ -1,7 +1,5 @@
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Download, Trophy } from "lucide-react";
+import { ExternalLink, Download } from "lucide-react";
 
 const PublicationsSection = () => {
   const publications = [
@@ -42,42 +40,32 @@ const PublicationsSection = () => {
   ];
 
   return (
-    <section id="publications" className="py-20 px-4 bg-gradient-soft">
-      <div className="max-w-6xl mx-auto space-y-12">
-        <div className="text-center space-y-4 animate-fade-up">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Publications & Research
+    <section id="publications" className="py-16 px-6 bg-background border-t border-border">
+      <div className="max-w-4xl mx-auto space-y-12">
+        <div className="space-y-4 animate-fade-up">
+          <h2 className="font-serif text-2xl font-semibold text-foreground">
+            Publications
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Bridging the gap between theoretical advances and practical impact
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="space-y-8">
           {publications.map((pub, index) => (
-            <Card 
+            <article 
               key={index} 
-              className="p-6 hover:shadow-warm transition-all duration-300 animate-fade-up border-0 bg-card/80 backdrop-blur-sm"
+              className="animate-fade-up border-b border-border pb-6 last:border-b-0"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="space-y-4">
-                {/* Header */}
+              <div className="space-y-3">
+                {/* Title and Award */}
                 <div className="space-y-2">
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="font-semibold text-foreground leading-tight">
-                      {pub.title}
-                    </h3>
-                    {pub.award && (
-                      <div className="flex items-center gap-1 text-accent">
-                        <Trophy className="w-4 h-4" />
-                      </div>
-                    )}
-                  </div>
+                  <h3 className="font-serif text-lg text-foreground leading-tight">
+                    {pub.title}
+                  </h3>
                   
-                  <div className="flex items-center gap-2">
-                    <p className="text-sm font-medium text-primary">{pub.venue}</p>
+                  <div className="flex items-center gap-3">
+                    <p className="font-sans text-sm text-muted-foreground italic">{pub.venue}</p>
                     {pub.award && (
-                      <Badge variant="outline" className="text-xs border-accent text-accent">
+                      <Badge variant="secondary" className="text-xs font-sans">
                         {pub.award}
                       </Badge>
                     )}
@@ -85,49 +73,50 @@ const PublicationsSection = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-muted-foreground leading-relaxed">
+                <p className="font-sans text-sm text-muted-foreground leading-relaxed">
                   {pub.description}
                 </p>
 
-                {/* Tags */}
-                <div className="flex flex-wrap gap-2">
-                  {pub.tags.map((tag, tagIndex) => (
-                    <Badge key={tagIndex} variant="secondary" className="text-xs">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
-
-                {/* Actions */}
-                <div className="flex gap-3 pt-2">
-                  <Button variant="soft" size="sm" asChild>
-                    <a href={pub.link} className="flex items-center gap-2">
+                {/* Tags and Links */}
+                <div className="flex items-center justify-between">
+                  <div className="flex flex-wrap gap-2">
+                    {pub.tags.map((tag, tagIndex) => (
+                      <span key={tagIndex} className="font-sans text-xs text-muted-foreground">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div className="flex gap-3">
+                    <a 
+                      href={pub.link} 
+                      className="font-sans text-xs text-primary hover:underline flex items-center gap-1"
+                    >
                       <ExternalLink className="w-3 h-3" />
-                      Read Paper
+                      Paper
                     </a>
-                  </Button>
-                  <Button variant="ghost" size="sm" asChild>
-                    <a href="#" className="flex items-center gap-2">
+                    <a 
+                      href="#" 
+                      className="font-sans text-xs text-primary hover:underline flex items-center gap-1"
+                    >
                       <Download className="w-3 h-3" />
                       PDF
                     </a>
-                  </Button>
+                  </div>
                 </div>
               </div>
-            </Card>
+            </article>
           ))}
         </div>
 
-        <div className="text-center animate-fade-up">
-          <p className="text-muted-foreground mb-4">
-            Want to dive deeper into my research?
-          </p>
-          <Button variant="accent" size="lg" asChild>
-            <a href="https://scholar.google.com" className="flex items-center gap-2">
-              <ExternalLink className="w-4 h-4" />
-              Google Scholar Profile
-            </a>
-          </Button>
+        <div className="text-center animate-fade-up pt-4">
+          <a 
+            href="https://scholar.google.com" 
+            className="font-sans text-sm text-primary hover:underline flex items-center justify-center gap-2"
+          >
+            <ExternalLink className="w-4 h-4" />
+            Complete publication list on Google Scholar
+          </a>
         </div>
       </div>
     </section>

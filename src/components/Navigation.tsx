@@ -10,57 +10,36 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b border-border/50">
-      <div className="max-w-6xl mx-auto px-4 py-3">
+    <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm z-50 border-b border-border">
+      <div className="max-w-4xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo/Name */}
           <button 
             onClick={() => scrollToSection('hero')}
-            className="text-xl font-bold text-foreground hover:text-primary transition-colors"
+            className="font-serif text-lg font-semibold text-foreground hover:text-primary transition-colors"
           >
             Valeriia Baranova
           </button>
 
-          {/* Navigation Links - Hidden on mobile */}
-          <div className="hidden md:flex items-center space-x-8">
-            <button
-              onClick={() => scrollToSection('publications')}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Publications
-            </button>
-            <button
-              onClick={() => scrollToSection('dissertation')}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Dissertation
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Contact
-            </button>
-          </div>
-
           {/* CTA Buttons */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             <Button 
               variant="ghost" 
               size="sm"
               onClick={() => scrollToSection('dissertation')}
-              className="hidden sm:flex"
+              className="font-sans"
             >
               <Download className="w-4 h-4 mr-2" />
               Dissertation
             </Button>
             <Button 
-              variant="warm" 
+              variant="default" 
               size="sm"
               onClick={() => scrollToSection('contact')}
+              className="font-sans"
             >
               <Mail className="w-4 h-4 mr-2" />
-              Say Hi
+              Contact
             </Button>
           </div>
         </div>

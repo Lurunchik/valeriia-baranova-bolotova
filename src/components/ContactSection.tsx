@@ -1,5 +1,3 @@
-import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Mail, Linkedin, Twitter, Github } from "lucide-react";
 
 const ContactSection = () => {
@@ -9,12 +7,11 @@ const ContactSection = () => {
       label: "Email",
       value: "valeriia.baranova@oracle.com",
       href: "mailto:valeriia.baranova@oracle.com",
-      primary: true
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "Valeriia Baranova",
+      value: "in/valeriia-baranova-bolotova-lurunchik",
       href: "https://www.linkedin.com/in/valeriia-baranova-bolotova-lurunchik/",
     },
     {
@@ -32,42 +29,41 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-16 px-4 bg-gradient-soft">
-      <div className="max-w-3xl mx-auto space-y-8">
-        <div className="text-center space-y-4 animate-fade-up">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-            Let's connect
+    <section id="contact" className="py-16 px-6 bg-background border-t border-border">
+      <div className="max-w-4xl mx-auto space-y-8">
+        <div className="space-y-4 animate-fade-up">
+          <h2 className="font-serif text-2xl font-semibold text-foreground">
+            Contact
           </h2>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-up">
           {contactMethods.map((method, index) => {
             const Icon = method.icon;
             return (
-              <Card 
-                key={index}
-                className="p-4 hover:shadow-warm transition-all duration-300 animate-fade-up border-0 bg-card/80 backdrop-blur-sm text-center"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <Button 
-                  variant={method.primary ? "warm" : "soft"} 
-                  size="sm" 
-                  className="w-full"
-                  asChild
+              <div key={index} className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <Icon className="w-4 h-4 text-muted-foreground" />
+                  <span className="font-sans text-sm text-muted-foreground">
+                    {method.label}:
+                  </span>
+                </div>
+                <a 
+                  href={method.href} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="font-sans text-sm text-primary hover:underline block pl-6"
                 >
-                  <a href={method.href} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-2">
-                    <Icon className="w-4 h-4" />
-                    <span className="text-xs">{method.label}</span>
-                  </a>
-                </Button>
-              </Card>
+                  {method.value}
+                </a>
+              </div>
             );
           })}
         </div>
 
-        <div className="text-center animate-fade-up">
-          <p className="text-sm text-muted-foreground italic">
-            Thanks for exploring my work! 💫
+        <div className="text-center pt-8 animate-fade-up">
+          <p className="font-sans text-xs text-muted-foreground">
+            Always happy to discuss research, collaboration opportunities, or new ideas.
           </p>
         </div>
       </div>
