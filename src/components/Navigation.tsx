@@ -24,12 +24,6 @@ const Navigation = () => {
           {/* Navigation Links - Hidden on mobile */}
           <div className="hidden md:flex items-center space-x-8">
             <button
-              onClick={() => scrollToSection('about')}
-              className="text-muted-foreground hover:text-foreground transition-colors"
-            >
-              About
-            </button>
-            <button
               onClick={() => scrollToSection('publications')}
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
