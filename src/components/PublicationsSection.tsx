@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Download } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const PublicationsSection = () => {
   const publications = [
@@ -80,33 +81,39 @@ const PublicationsSection = () => {
     }
   ];
 
+  const sectionRef = useScrollAnimation();
+
   return (
-    <section id="publications" className="py-16 px-6 bg-background border-t border-border">
-      <div className="max-w-4xl mx-auto space-y-12">
-        <div className="space-y-4 animate-fade-up">
-          <h2 className="font-serif text-2xl font-semibold text-foreground">
+    <section 
+      ref={sectionRef}
+      id="publications" 
+      className="py-24 px-6 bg-background section-entrance"
+    >
+      <div className="max-w-4xl mx-auto space-y-16">
+        <div className="text-center space-y-4">
+          <h2 className="font-serif text-3xl font-light text-foreground">
             Publications
           </h2>
+          <div className="w-16 h-px bg-border mx-auto"></div>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-12">
           {publications.map((pub, index) => (
             <article 
               key={index} 
-              className="animate-fade-up border-b border-border pb-6 last:border-b-0"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group hover-lift transition-all duration-300 border-b border-border pb-8 last:border-b-0"
             >
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {/* Title and Award */}
-                <div className="space-y-2">
-                  <h3 className="font-serif text-lg text-foreground leading-tight">
+                <div className="space-y-3">
+                  <h3 className="font-serif text-xl text-foreground leading-tight group-hover:text-primary transition-colors duration-300 elegant-underline">
                     {pub.title}
                   </h3>
                   
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 flex-wrap">
                     <p className="font-sans text-sm text-muted-foreground italic">{pub.venue}</p>
                     {pub.award && (
-                      <Badge variant="secondary" className="text-xs font-sans">
+                      <Badge variant="secondary" className="text-xs font-sans bg-primary/10 text-primary border-primary/20">
                         {pub.award}
                       </Badge>
                     )}
@@ -114,31 +121,31 @@ const PublicationsSection = () => {
                 </div>
 
                 {/* Description */}
-                <p className="font-sans text-sm text-muted-foreground leading-relaxed">
+                <p className="font-sans text-base text-muted-foreground leading-relaxed">
                   {pub.description}
                 </p>
 
                 {/* Tags and Links */}
-                <div className="flex items-center justify-between">
-                  <div className="flex flex-wrap gap-2">
+                <div className="flex items-center justify-between pt-2">
+                  <div className="flex flex-wrap gap-3">
                     {pub.tags.map((tag, tagIndex) => (
-                      <span key={tagIndex} className="font-sans text-xs text-muted-foreground">
+                      <span key={tagIndex} className="font-sans text-xs text-muted-foreground/70 bg-accent px-2 py-1 rounded">
                         {tag}
                       </span>
                     ))}
                   </div>
                   
-                  <div className="flex gap-3">
+                  <div className="flex gap-4">
                     <a 
                       href={pub.link} 
-                      className="font-sans text-xs text-primary hover:underline flex items-center gap-1"
+                      className="font-sans text-sm text-primary hover:text-primary/80 transition-colors duration-300 flex items-center gap-2 elegant-underline"
                     >
                       <ExternalLink className="w-3 h-3" />
                       Paper
                     </a>
                     <a 
                       href="#" 
-                      className="font-sans text-xs text-primary hover:underline flex items-center gap-1"
+                      className="font-sans text-sm text-primary hover:text-primary/80 transition-colors duration-300 flex items-center gap-2 elegant-underline"
                     >
                       <Download className="w-3 h-3" />
                       PDF
@@ -150,10 +157,10 @@ const PublicationsSection = () => {
           ))}
         </div>
 
-        <div className="text-center animate-fade-up pt-4">
+        <div className="text-center pt-8">
           <a 
             href="https://scholar.google.com" 
-            className="font-sans text-sm text-primary hover:underline flex items-center justify-center gap-2"
+            className="font-sans text-base text-primary hover:text-primary/80 transition-colors duration-300 flex items-center justify-center gap-2 elegant-underline"
           >
             <ExternalLink className="w-4 h-4" />
             Complete publication list on Google Scholar
