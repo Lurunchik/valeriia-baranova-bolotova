@@ -87,67 +87,63 @@ const PublicationsSection = () => {
     <section 
       ref={sectionRef}
       id="publications" 
-      className="py-24 px-6 bg-background section-entrance"
+      className="paper-section section-entrance"
     >
-      <div className="max-w-4xl mx-auto space-y-16">
-        <div className="text-center space-y-4">
-          <h2 className="font-serif text-3xl font-light text-foreground">
+      <div className="max-w-3xl mx-auto px-8">
+        <div className="text-center mb-16">
+          <h2 className="academic-title text-3xl text-foreground mb-4">
             Publications
           </h2>
-          <div className="w-16 h-px bg-border mx-auto"></div>
+          <div className="paper-divider"></div>
         </div>
 
-        <div className="space-y-12">
+        <div className="space-y-8">
           {publications.map((pub, index) => (
             <article 
               key={index} 
-              className="group hover-lift transition-all duration-300 border-b border-border pb-8 last:border-b-0"
+              className="border-b border-border/30 pb-6 last:border-b-0"
             >
-              <div className="space-y-4">
-                {/* Title and Award */}
-                <div className="space-y-3">
-                  <h3 className="font-serif text-xl text-foreground leading-tight group-hover:text-primary transition-colors duration-300 elegant-underline">
+              <div className="space-y-3">
+                <div className="space-y-2">
+                  <h3 className="academic-title text-lg text-foreground leading-tight">
                     {pub.title}
                   </h3>
                   
-                  <div className="flex items-center gap-3 flex-wrap">
-                    <p className="font-sans text-sm text-muted-foreground italic">{pub.venue}</p>
+                  <div className="flex items-center gap-2 text-sm">
+                    <span className="text-muted-foreground academic-emphasis">{pub.venue}</span>
                     {pub.award && (
-                      <Badge variant="secondary" className="text-xs font-sans bg-primary/10 text-primary border-primary/20">
-                        {pub.award}
-                      </Badge>
+                      <>
+                        <span className="text-muted-foreground">·</span>
+                        <span className="text-primary font-medium">{pub.award}</span>
+                      </>
                     )}
                   </div>
                 </div>
 
-                {/* Description */}
-                <p className="font-sans text-base text-muted-foreground leading-relaxed">
+                <p className="academic-body text-muted-foreground text-sm">
                   {pub.description}
                 </p>
 
-                {/* Tags and Links */}
-                <div className="flex items-center justify-between pt-2">
-                  <div className="flex flex-wrap gap-3">
-                    {pub.tags.map((tag, tagIndex) => (
-                      <span key={tagIndex} className="font-sans text-xs text-muted-foreground/70 bg-accent px-2 py-1 rounded">
+                <div className="flex items-center justify-between pt-1">
+                  <div className="flex flex-wrap gap-2">
+                    {pub.tags.slice(0, 3).map((tag, tagIndex) => (
+                      <span key={tagIndex} className="text-xs text-muted-foreground/60">
                         {tag}
                       </span>
                     ))}
                   </div>
                   
-                  <div className="flex gap-4">
+                  <div className="flex gap-3 text-xs">
                     <a 
                       href={pub.link} 
-                      className="font-sans text-sm text-primary hover:text-primary/80 transition-colors duration-300 flex items-center gap-2 elegant-underline"
+                      className="text-primary hover:text-primary/70 transition-colors"
                     >
-                      <ExternalLink className="w-3 h-3" />
-                      Paper
+                      View Paper
                     </a>
                     <a 
                       href="#" 
-                      className="font-sans text-sm text-primary hover:text-primary/80 transition-colors duration-300 flex items-center gap-2 elegant-underline"
+                      className="text-primary hover:text-primary/70 transition-colors"
                     >
-                      <Download className="w-3 h-3" />
                       PDF
                     </a>
                   </div>
@@ -157,13 +153,12 @@ const PublicationsSection = () => {
           ))}
         </div>
 
-        <div className="text-center pt-8">
+        <div className="text-center pt-12">
           <a 
             href="https://scholar.google.com" 
-            className="font-sans text-base text-primary hover:text-primary/80 transition-colors duration-300 flex items-center justify-center gap-2 elegant-underline"
+            className="text-sm text-primary hover:text-primary/70 transition-colors"
           >
-            <ExternalLink className="w-4 h-4" />
-            Complete publication list on Google Scholar
+            Complete publication list on Google Scholar →
           </a>
         </div>
       </div>

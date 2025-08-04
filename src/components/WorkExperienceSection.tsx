@@ -1,5 +1,4 @@
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const WorkExperienceSection = () => {
   const experiences = [
@@ -50,61 +49,46 @@ const WorkExperienceSection = () => {
   ];
 
   return (
-    <section id="experience" className="py-16 px-6 bg-background border-t border-border">
-      <div className="max-w-4xl mx-auto space-y-12">
-        <div className="space-y-4 animate-fade-up">
-          <h2 className="font-serif text-2xl font-semibold text-foreground">
-            Work Experience
+    <section id="experience" className="paper-section">
+      <div className="max-w-3xl mx-auto px-8">
+        <div className="text-center mb-16">
+          <h2 className="academic-title text-3xl text-foreground mb-4">
+            Professional Experience
           </h2>
+          <div className="paper-divider"></div>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-12">
           {experiences.map((exp, index) => (
             <article 
               key={index} 
-              className="animate-fade-up border-b border-border pb-6 last:border-b-0"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="border-b border-border/30 pb-8 last:border-b-0"
             >
-              <div className="space-y-3">
-                {/* Title and Company */}
+              <div className="space-y-4">
                 <div className="space-y-2">
-                  <h3 className="font-serif text-lg text-foreground leading-tight">
+                  <h3 className="academic-title text-xl text-foreground">
                     {exp.title}
                   </h3>
                   
-                  <div className="flex items-center gap-3">
-                    <p className="font-sans text-sm text-primary font-medium">{exp.company}</p>
-                    <Badge variant="secondary" className="text-xs font-sans">
-                      {exp.type}
-                    </Badge>
+                  <div className="flex items-baseline gap-2">
+                    <p className="text-primary font-medium">{exp.company}</p>
+                    <span className="text-muted-foreground">·</span>
+                    <span className="text-sm text-muted-foreground academic-emphasis">{exp.period}</span>
                   </div>
                   
-                  <div className="space-y-1">
-                    <p className="font-sans text-sm text-muted-foreground italic">{exp.period}</p>
-                    <p className="font-sans text-sm text-muted-foreground italic">{exp.location}</p>
-                  </div>
+                  {exp.location && (
+                    <p className="text-sm text-muted-foreground academic-emphasis">{exp.location}</p>
+                  )}
                 </div>
 
-                {/* Description */}
                 {exp.description && (
-                  <div className="font-sans text-sm text-muted-foreground leading-relaxed">
+                  <div className="academic-body text-muted-foreground pt-2">
                     {exp.description.split('\n').map((paragraph, pIndex) => (
                       paragraph.trim() && (
-                        <p key={pIndex} className="mb-3 last:mb-0">
+                        <p key={pIndex} className="mb-4 last:mb-0">
                           {paragraph}
                         </p>
                       )
-                    ))}
-                  </div>
-                )}
-
-                {/* Skills */}
-                {exp.skills && (
-                  <div className="flex flex-wrap gap-2">
-                    {exp.skills.map((skill, skillIndex) => (
-                      <span key={skillIndex} className="font-sans text-xs text-muted-foreground">
-                        {skill}
-                      </span>
                     ))}
                   </div>
                 )}

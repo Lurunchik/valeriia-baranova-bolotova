@@ -29,40 +29,41 @@ const ContactSection = () => {
   ];
 
   return (
-    <section id="contact" className="py-16 px-6 bg-background border-t border-border">
-      <div className="max-w-4xl mx-auto space-y-8">
-        <div className="space-y-4 animate-fade-up">
-          <h2 className="font-serif text-2xl font-semibold text-foreground">
+    <section id="contact" className="paper-section">
+      <div className="max-w-3xl mx-auto px-8">
+        <div className="text-center mb-16">
+          <h2 className="academic-title text-3xl text-foreground mb-4">
             Contact
           </h2>
+          <div className="paper-divider"></div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-up">
+        <div className="space-y-6">
           {contactMethods.map((method, index) => {
             const Icon = method.icon;
             return (
-              <div key={index} className="space-y-1">
-                <div className="flex items-center gap-2">
-                  <Icon className="w-4 h-4 text-muted-foreground" />
-                  <span className="font-sans text-sm text-muted-foreground">
-                    {method.label}:
+              <div key={index} className="flex items-center gap-4 pb-4 border-b border-border/30 last:border-b-0">
+                <Icon className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+                <div className="flex-1">
+                  <span className="text-sm text-muted-foreground academic-emphasis block">
+                    {method.label}
                   </span>
+                  <a 
+                    href={method.href} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary/70 transition-colors"
+                  >
+                    {method.value}
+                  </a>
                 </div>
-                <a 
-                  href={method.href} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="font-sans text-sm text-primary hover:underline block pl-6"
-                >
-                  {method.value}
-                </a>
               </div>
             );
           })}
         </div>
 
-        <div className="text-center pt-8 animate-fade-up">
-          <p className="font-sans text-xs text-muted-foreground">
+        <div className="text-center pt-12">
+          <p className="text-sm text-muted-foreground academic-emphasis">
             Always happy to discuss research, collaboration opportunities, or new ideas.
           </p>
         </div>

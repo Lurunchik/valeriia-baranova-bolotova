@@ -1,6 +1,3 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { GraduationCap } from "lucide-react";
-
 const EducationSection = () => {
   const education = [
     {
@@ -27,45 +24,40 @@ const EducationSection = () => {
   ];
 
   return (
-    <section id="education" className="py-12 px-6 bg-muted/50">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <GraduationCap className="w-6 h-6 text-primary" />
-          <h2 className="text-2xl font-serif font-bold text-center text-foreground">
+    <section id="education" className="paper-section">
+      <div className="max-w-3xl mx-auto px-8">
+        <div className="text-center mb-16">
+          <h2 className="academic-title text-3xl text-foreground mb-4">
             Education
           </h2>
+          <div className="paper-divider"></div>
         </div>
-        <div className="space-y-4">
+        
+        <div className="space-y-8">
           {education.map((edu, index) => (
-            <Card key={index} className="border border-border bg-background">
-              <CardContent className="p-4">
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
-                  <div className="flex-1">
-                    <h3 className="text-lg font-semibold text-foreground mb-1">
-                      {edu.degree}
-                    </h3>
-                    <p className="text-base font-medium text-primary mb-1">
-                      {edu.university}
-                    </p>
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-muted-foreground">
-                      <span>{edu.period}</span>
-                      {edu.grade && (
-                        <>
-                          <span className="hidden sm:inline">•</span>
-                          <span className="font-medium">{edu.grade}</span>
-                        </>
-                      )}
-                    </div>
-                  </div>
+            <article key={index} className="border-b border-border/30 pb-6 last:border-b-0">
+              <div className="space-y-2">
+                <h3 className="academic-title text-lg text-foreground">
+                  {edu.degree}
+                </h3>
+                <div className="flex items-center gap-2 text-sm">
+                  <span className="text-primary font-medium">{edu.university}</span>
+                  <span className="text-muted-foreground">·</span>
+                  <span className="text-muted-foreground academic-emphasis">{edu.period}</span>
+                  {edu.grade && (
+                    <>
+                      <span className="text-muted-foreground">·</span>
+                      <span className="text-muted-foreground">{edu.grade}</span>
+                    </>
+                  )}
                 </div>
                 {edu.thesis && (
-                  <div className="mt-3">
-                    <span className="text-sm font-medium text-foreground">Thesis: </span>
-                    <span className="text-sm text-muted-foreground">{edu.thesis}</span>
-                  </div>
+                  <p className="text-sm text-muted-foreground pt-1">
+                    <span className="academic-emphasis">Thesis:</span> {edu.thesis}
+                  </p>
                 )}
-              </CardContent>
-            </Card>
+              </div>
+            </article>
           ))}
         </div>
       </div>
