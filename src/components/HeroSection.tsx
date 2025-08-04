@@ -17,8 +17,7 @@ const HeroSection = () => {
             <TextEncrypt>Valeriia Baranova (ex Bolotova)</TextEncrypt>
           </p>
           <p className="font-serif text-lg text-muted-foreground">
-            Exploring and propelling new futures of AI<br />
-            through research and development
+            Specialist in IR/NLP & Medical AI
           </p>
         </div>
 
