@@ -21,8 +21,20 @@ const Navigation = () => {
             Valeriia Baranova
           </button>
 
-          {/* CTA Buttons */}
+          {/* Navigation Links */}
           <div className="flex items-center gap-4">
+            <button 
+              onClick={() => scrollToSection('experience')}
+              className="text-sm font-sans text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Experience
+            </button>
+            <button 
+              onClick={() => scrollToSection('publications')}
+              className="text-sm font-sans text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Publications
+            </button>
             <Button 
               variant="ghost" 
               size="sm"
