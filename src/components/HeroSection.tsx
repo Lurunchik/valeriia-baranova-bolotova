@@ -16,7 +16,7 @@ const HeroSection = () => {
                 PhD in Information Retrieval
               </p>
               <p className="font-sans text-base text-muted-foreground">
-                Applied Scientist at Oracle
+                Senior, Medical AI
               </p>
               <p className="font-sans text-base text-muted-foreground">
                 Exploring context-aware AI systems and interpretable machine learning
