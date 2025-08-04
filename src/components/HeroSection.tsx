@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Download, Mail } from "lucide-react";
 import TextEncrypt from "@/components/animations/TextEncrypt";
-
 const HeroSection = () => {
-  return (
-    <section className="min-h-screen flex items-center justify-center px-6 bg-background">
+  return <section className="min-h-screen flex items-center justify-center px-6 bg-background">
       <div className="max-w-4xl mx-auto text-center space-y-12">
         {/* Name */}
         <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-normal text-foreground tracking-tight leading-tight animate-refined-fade-up">
@@ -12,7 +10,9 @@ const HeroSection = () => {
         </h1>
 
         {/* Subtitle */}
-        <div className="space-y-3 animate-refined-fade-up" style={{ animationDelay: '0.2s' }}>
+        <div className="space-y-3 animate-refined-fade-up" style={{
+        animationDelay: '0.2s'
+      }}>
           <p className="font-serif text-xl md:text-2xl text-muted-foreground">
             <TextEncrypt>Valeriia Baranova (ex Bolotova)</TextEncrypt>
           </p>
@@ -35,7 +35,7 @@ const HeroSection = () => {
         <div className="space-y-4">
           <h3 className="font-serif text-lg text-foreground">Contact</h3>
           <div className="space-y-2 text-muted-foreground">
-            <p className="font-sans text-sm">Inquiries: valeriia.baranova@oracle.com</p>
+            <p className="font-sans text-sm">Inquiries: lurunchik@gmail.com</p>
             <p className="font-sans text-sm">LinkedIn: /in/valeriia-baranova</p>
             <p className="font-sans text-sm">More Info: scholar.google.com</p>
           </div>
@@ -69,24 +69,14 @@ const HeroSection = () => {
 
         {/* Actions */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-          <Button 
-            variant="default" 
-            size="lg"
-            className="font-sans text-sm px-6 py-3"
-            asChild
-          >
+          <Button variant="default" size="lg" className="font-sans text-sm px-6 py-3" asChild>
             <a href="#dissertation" className="flex items-center gap-2">
               <Download className="w-4 h-4" />
               Download Dissertation
             </a>
           </Button>
           
-          <Button 
-            variant="outline" 
-            size="lg"
-            className="font-sans text-sm px-6 py-3"
-            asChild
-          >
+          <Button variant="outline" size="lg" className="font-sans text-sm px-6 py-3" asChild>
             <a href="#contact" className="flex items-center gap-2">
               <Mail className="w-4 h-4" />
               Contact
@@ -94,8 +84,6 @@ const HeroSection = () => {
           </Button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
