@@ -155,7 +155,7 @@ const PublicationsSection = () => {
 
         <div className="text-center pt-12">
           <a 
-            href="https://scholar.google.com" 
+            href="https://scholar.google.com/citations?user=hcVowx4AAAAJ" 
             className="text-sm text-primary hover:text-primary/70 transition-colors"
           >
             Complete publication list on Google Scholar →
