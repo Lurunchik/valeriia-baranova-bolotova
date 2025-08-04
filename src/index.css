@@ -8,8 +8,8 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Research paper aesthetic - minimal colors */
-    --background: 0 0% 100%;
+    /* Academic paper aesthetic - elegant typography */
+    --background: 0 0% 99%;
     --foreground: 0 0% 8%;
 
     --card: 0 0% 100%;
@@ -18,70 +18,64 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 8%;
 
-    /* Academic blue for links */
-    --primary: 220 80% 25%;
+    /* Academic blue for links - deeper, more scholarly */
+    --primary: 220 85% 20%;
     --primary-foreground: 0 0% 100%;
-    --primary-soft: 220 30% 95%;
+    --primary-soft: 220 30% 96%;
 
-    --secondary: 0 0% 96%;
+    --secondary: 0 0% 95%;
     --secondary-foreground: 0 0% 15%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 40%;
 
     /* Subtle accent */
-    --accent: 0 0% 94%;
+    --accent: 0 0% 92%;
     --accent-foreground: 0 0% 15%;
     --accent-soft: 0 0% 98%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
+    --border: 0 0% 85%;
     --input: 0 0% 90%;
-    --ring: 220 80% 25%;
+    --ring: 220 85% 20%;
 
     /* Academic paper styling */
-    --transition-smooth: all 0.2s ease;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --paper-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 
-    --radius: 0.5rem;
+    --radius: 0.375rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 0 0% 4%;
-    --foreground: 0 0% 95%;
+    --background: 0 0% 5%;
+    --foreground: 0 0% 92%;
 
-    --card: 0 0% 6%;
-    --card-foreground: 0 0% 95%;
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 92%;
 
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 92%;
 
     --primary: 220 70% 65%;
-    --primary-foreground: 0 0% 4%;
+    --primary-foreground: 0 0% 5%;
     --primary-soft: 220 20% 15%;
 
     --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 85%;
 
     --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 60%;
+    --muted-foreground: 0 0% 55%;
 
     --accent: 0 0% 15%;
     --accent-foreground: 0 0% 90%;
@@ -112,5 +106,44 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
+
+  /* Academic typography improvements */
+  .prose {
+    @apply text-foreground;
+  }
+  
+  .prose p {
+    @apply leading-relaxed;
+  }
+  
+  /* Paper-like sections */
+  .paper-section {
+    @apply bg-card border border-border rounded-lg shadow-sm;
+  }
+  
+  /* Elegant dividers */
+  .paper-divider {
+    @apply w-24 h-px bg-gradient-to-r from-transparent via-border to-transparent mx-auto;
+  }
+}
+
+/* Custom fade-up animation for staggered entrance */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
