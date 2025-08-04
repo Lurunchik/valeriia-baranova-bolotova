@@ -5,10 +5,12 @@ import PublicationsSection from "@/components/PublicationsSection";
 import EducationSection from "@/components/EducationSection";
 import DissertationSection from "@/components/DissertationSection";
 import ContactSection from "@/components/ContactSection";
+import CursorFollower from "@/components/animations/CursorFollower";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
+      <CursorFollower />
       <Navigation />
       <main>
         <div id="hero">

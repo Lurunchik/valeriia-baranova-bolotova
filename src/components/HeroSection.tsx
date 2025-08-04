@@ -1,19 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { Download, Mail } from "lucide-react";
+import TextEncrypt from "@/components/animations/TextEncrypt";
 
 const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center justify-center px-6 bg-background">
       <div className="max-w-4xl mx-auto text-center space-y-12">
         {/* Name */}
-        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-normal text-foreground tracking-tight leading-tight">
-          Valeriia Baranova
+        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-normal text-foreground tracking-tight leading-tight animate-refined-fade-up">
+          <TextEncrypt>Valeriia Baranova</TextEncrypt>
         </h1>
 
         {/* Subtitle */}
-        <div className="space-y-3">
+        <div className="space-y-3 animate-refined-fade-up" style={{ animationDelay: '0.2s' }}>
           <p className="font-serif text-xl md:text-2xl text-muted-foreground">
-            Specialist in IR/NLP & Medical AI
+            <TextEncrypt>Specialist in IR/NLP & Medical AI</TextEncrypt>
           </p>
           <p className="font-serif text-lg text-muted-foreground">
             Exploring and propelling new futures of AI<br />

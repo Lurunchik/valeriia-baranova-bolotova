@@ -1,4 +1,6 @@
 import { Badge } from "@/components/ui/badge";
+import { useIntersectionObserver } from "@/hooks/useIntersectionObserver";
+import TextEncrypt from "@/components/animations/TextEncrypt";
 
 const WorkExperienceSection = () => {
   const experiences = [
@@ -48,12 +50,14 @@ const WorkExperienceSection = () => {
     }
   ];
 
+  const { ref, isIntersecting } = useIntersectionObserver();
+
   return (
-    <section id="experience" className="paper-section">
+    <section id="experience" className="paper-section" ref={ref}>
       <div className="max-w-3xl mx-auto px-8">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-1000 ${isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="academic-title text-3xl text-foreground mb-4">
-            Professional Experience
+            <TextEncrypt>Professional Experience</TextEncrypt>
           </h2>
           <div className="paper-divider"></div>
         </div>
@@ -62,12 +66,15 @@ const WorkExperienceSection = () => {
           {experiences.map((exp, index) => (
             <article 
               key={index} 
-              className="border-b border-border/30 pb-8 last:border-b-0"
+              className={`border-b border-border/30 pb-8 last:border-b-0 transition-all duration-700 ${
+                isIntersecting ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: `${(index + 1) * 0.1}s` }}
             >
               <div className="space-y-4">
                 <div className="space-y-2">
                   <h3 className="academic-title text-xl text-foreground">
-                    {exp.title}
+                    <TextEncrypt>{exp.title}</TextEncrypt>
                   </h3>
                   
                   <div className="flex items-baseline gap-2">
