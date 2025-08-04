@@ -39,7 +39,7 @@ const HeroSection = () => {
             <p className="font-sans text-sm">
               LinkedIn: <a href="https://www.linkedin.com/in/valeriia-baranova-bolotova-lurunchik" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">/in/valeriia-baranova-bolotova-lurunchik</a>
             </p>
-            <p className="font-sans text-sm">More Info: scholar.google.com</p>
+            
           </div>
         </div>
 
@@ -52,7 +52,7 @@ const HeroSection = () => {
             <p className="font-serif text-sm">Outstanding Video Award at ACL (2023)</p>
             <p className="font-serif text-sm">PhD in Information Retrieval - RMIT (2024)</p>
             <p className="font-serif text-sm">13+ Years in AI/ML Industry (2011-present)</p>
-            <p className="font-serif text-sm">Led 40+ Person AI Teams at Tinkoff Bank</p>
+            
           </div>
         </div>
 
