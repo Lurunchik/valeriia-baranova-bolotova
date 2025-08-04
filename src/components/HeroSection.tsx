@@ -23,9 +23,7 @@ const HeroSection = () => {
 
         {/* Company */}
         <div className="space-y-2">
-          <p className="font-serif text-lg text-foreground font-medium">
-            Oracle Medical AI
-          </p>
+          <p className="font-serif text-lg text-foreground font-medium">Oracle Health and AI</p>
           <p className="font-serif text-base text-muted-foreground">
             Senior Applied Scientist
           </p>
