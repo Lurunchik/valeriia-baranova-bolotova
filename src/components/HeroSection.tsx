@@ -3,7 +3,7 @@ import { Download, Mail } from "lucide-react";
 import TextEncrypt from "@/components/animations/TextEncrypt";
 const HeroSection = () => {
   return <section className="min-h-screen flex items-center justify-center px-6 bg-background">
-      <div className="max-w-4xl mx-auto text-center space-y-12">
+      <div className="max-w-4xl mx-auto text-center space-y-8">
         {/* Name */}
         <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-normal text-foreground tracking-tight leading-tight animate-refined-fade-up">
           <TextEncrypt>Valeriia Baranova</TextEncrypt>
@@ -32,9 +32,9 @@ const HeroSection = () => {
         </div>
 
         {/* Contact */}
-        <div className="space-y-4">
+        <div className="space-y-2">
           <h3 className="font-serif text-lg text-foreground">Contact</h3>
-          <div className="space-y-2 text-muted-foreground">
+          <div className="space-y-1 text-muted-foreground">
             <p className="font-sans text-sm">Inquiries: lurunchik@gmail.com</p>
             <p className="font-sans text-sm">
               LinkedIn: <a href="https://www.linkedin.com/in/valeriia-baranova-bolotova-lurunchik" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">/in/valeriia-baranova-bolotova-lurunchik</a>
@@ -44,9 +44,9 @@ const HeroSection = () => {
         </div>
 
         {/* Awards & Achievements */}
-        <div className="space-y-6">
+        <div className="space-y-3">
           <h3 className="font-serif text-lg text-foreground">Awards & Recognition</h3>
-          <div className="space-y-3 text-muted-foreground text-left max-w-2xl mx-auto">
+          <div className="space-y-2 text-muted-foreground text-left max-w-2xl mx-auto">
             <p className="font-serif text-sm">Best Paper Award at SIGIR (2022)</p>
             <p className="font-serif text-sm">Best Paper Award at CIKM (2020)</p>
             <p className="font-serif text-sm">Outstanding Video Award at ACL (2023)</p>
