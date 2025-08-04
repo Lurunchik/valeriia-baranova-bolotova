@@ -35,6 +35,12 @@ const Navigation = () => {
             >
               Publications
             </button>
+            <button 
+              onClick={() => scrollToSection('education')}
+              className="text-sm font-sans text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Education
+            </button>
             <Button 
               variant="ghost" 
               size="sm"
