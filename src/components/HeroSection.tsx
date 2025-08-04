@@ -16,10 +16,7 @@ const HeroSection = () => {
                 PhD in Information Retrieval
               </p>
               <p className="font-sans text-base text-muted-foreground">
-                Senior, Medical AI
-              </p>
-              <p className="font-sans text-base text-muted-foreground">
-                Exploring context-aware AI systems and interpretable machine learning
+                Senior Applied Scientist at Oracle, Medical AI
               </p>
             </div>
           </div>
@@ -27,10 +24,11 @@ const HeroSection = () => {
           {/* Brief description */}
           <div className="max-w-3xl mx-auto">
             <p className="font-serif text-lg leading-relaxed text-foreground">
-              I develop and deploy AI systems that understand context and user intent, 
-              bridging the gap between academic research and practical applications. 
-              My work focuses on making information retrieval more intelligent, 
-              interpretable, and accessible.
+              Applied AI specialist with 13+ years of experience in IR/NLP, delivering high-impact fintech and agent systems across startups and Big Tech. 
+              Led large teams (40+ people) and built AI systems from the ground up: research, modeling, deployment, and ongoing support. 
+              Hands-on with data pipelines, engineering, and modern deep learning, including training large language models. 
+              Currently focused on Medical AI. 
+              PhD in Information Retrieval; Best Paper awards at top-tier conferences (CIKM, SIGIR).
             </p>
           </div>
 
