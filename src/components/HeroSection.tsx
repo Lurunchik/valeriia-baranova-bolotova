@@ -36,7 +36,9 @@ const HeroSection = () => {
           <h3 className="font-serif text-lg text-foreground">Contact</h3>
           <div className="space-y-2 text-muted-foreground">
             <p className="font-sans text-sm">Inquiries: lurunchik@gmail.com</p>
-            <p className="font-sans text-sm">LinkedIn: /in/valeriia-baranova</p>
+            <p className="font-sans text-sm">
+              LinkedIn: <a href="https://www.linkedin.com/in/valeriia-baranova-bolotova-lurunchik" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">/in/valeriia-baranova-bolotova-lurunchik</a>
+            </p>
             <p className="font-sans text-sm">More Info: scholar.google.com</p>
           </div>
         </div>
