@@ -1,120 +1,97 @@
 import { Button } from "@/components/ui/button";
 import { Download, Mail } from "lucide-react";
-import { useEffect, useState } from "react";
-
-const AnimatedName = () => {
-  const name = "Valeriia Baranova";
-  const [animateChars, setAnimateChars] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => setAnimateChars(true), 500);
-    return () => clearTimeout(timer);
-  }, []);
-
-  return (
-    <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light text-foreground tracking-tight">
-      {name.split('').map((char, index) => (
-        <span
-          key={index}
-          className={`char-animate ${char === ' ' ? 'mr-4' : ''}`}
-          style={{ 
-            animationDelay: animateChars ? `${index * 0.05}s` : '999s'
-          }}
-        >
-          {char === ' ' ? '\u00A0' : char}
-        </span>
-      ))}
-    </h1>
-  );
-};
 
 const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center justify-center px-6 bg-background">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center space-y-16">
-          {/* Animated Name */}
-          <div className="space-y-8">
-            <AnimatedName />
-            
-            <div className="space-y-4 text-reveal" style={{ animationDelay: '1.5s' }}>
-              <p className="font-serif text-xl text-muted-foreground">
-                PhD in Information Retrieval
-              </p>
-              <p className="font-serif text-lg text-muted-foreground">
-                Senior Applied Scientist at Oracle, Medical AI
-              </p>
-            </div>
-          </div>
+      <div className="max-w-4xl mx-auto text-center space-y-12">
+        {/* Name */}
+        <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl font-normal text-foreground tracking-tight leading-tight">
+          Valeriia Baranova
+        </h1>
 
-          {/* Elegant separator */}
-          <div className="animate-refined-fade-up" style={{ animationDelay: '2s' }}>
-            <div className="w-32 h-px bg-gradient-to-r from-transparent via-border to-transparent mx-auto"></div>
-          </div>
+        {/* Subtitle */}
+        <div className="space-y-3">
+          <p className="font-serif text-xl md:text-2xl text-muted-foreground">
+            Specialist in IR/NLP & Medical AI
+          </p>
+          <p className="font-serif text-lg text-muted-foreground">
+            Exploring and propelling new futures of AI<br />
+            through research and development
+          </p>
+        </div>
 
-          {/* Bio section with refined typography */}
-          <div className="max-w-4xl mx-auto space-y-8 animate-refined-fade-up" style={{ animationDelay: '2.5s' }}>            
-            <div className="prose prose-lg max-w-none">
-              <p className="font-serif text-xl leading-[1.8] text-foreground">
-                Applied AI specialist with 13+ years of experience in IR/NLP, delivering high-impact fintech and agent systems across startups and Big Tech.
-              </p>
-              
-              <p className="font-serif text-xl leading-[1.8] text-foreground mt-8">
-                Led large teams (40+ people) and built AI systems from the ground up: research, modeling, deployment, and ongoing support. Hands-on with data pipelines, engineering, and modern deep learning, including training large language models.
-              </p>
-              
-              <p className="font-serif text-xl leading-[1.8] text-foreground mt-8">
-                Currently focused on Medical AI. PhD in Information Retrieval; Best Paper awards at top-tier conferences (CIKM, SIGIR).
-              </p>
-            </div>
-          </div>
+        {/* Company */}
+        <div className="space-y-2">
+          <p className="font-serif text-lg text-foreground font-medium">
+            Oracle Medical AI
+          </p>
+          <p className="font-serif text-base text-muted-foreground">
+            Senior Applied Scientist
+          </p>
+        </div>
 
-          {/* Statistics */}
-          <div className="animate-refined-fade-up" style={{ animationDelay: '3s' }}>
-            <div className="flex justify-center items-center space-x-12 text-muted-foreground">
-              <div className="text-center">
-                <div className="font-serif text-3xl font-light mb-1">2×</div>
-                <div className="font-sans text-sm uppercase tracking-wider">Best Paper Awards</div>
-              </div>
-              <div className="w-px h-16 bg-border"></div>
-              <div className="text-center">
-                <div className="font-serif text-3xl font-light mb-1">13+</div>
-                <div className="font-sans text-sm uppercase tracking-wider">Years Experience</div>
-              </div>
-              <div className="w-px h-16 bg-border"></div>
-              <div className="text-center">
-                <div className="font-serif text-3xl font-light mb-1">40+</div>
-                <div className="font-sans text-sm uppercase tracking-wider">Team Members Led</div>
-              </div>
-            </div>
+        {/* Contact */}
+        <div className="space-y-4">
+          <h3 className="font-serif text-lg text-foreground">Contact</h3>
+          <div className="space-y-2 text-muted-foreground">
+            <p className="font-sans text-sm">Inquiries: valeriia.baranova@oracle.com</p>
+            <p className="font-sans text-sm">LinkedIn: /in/valeriia-baranova</p>
+            <p className="font-sans text-sm">More Info: scholar.google.com</p>
           </div>
+        </div>
 
-          {/* Actions */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-refined-fade-up" style={{ animationDelay: '3.5s' }}>
-            <Button 
-              variant="default" 
-              size="lg"
-              className="font-sans text-sm uppercase tracking-wider px-8 py-3 hover-lift"
-              asChild
-            >
-              <a href="#dissertation" className="flex items-center gap-3">
-                <Download className="w-4 h-4" />
-                Download Dissertation
-              </a>
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="font-sans text-sm uppercase tracking-wider px-8 py-3 hover-lift"
-              asChild
-            >
-              <a href="#contact" className="flex items-center gap-3">
-                <Mail className="w-4 h-4" />
-                Contact
-              </a>
-            </Button>
+        {/* Awards & Achievements */}
+        <div className="space-y-6">
+          <h3 className="font-serif text-lg text-foreground">Awards & Recognition</h3>
+          <div className="space-y-3 text-muted-foreground text-left max-w-2xl mx-auto">
+            <p className="font-serif text-sm">Best Paper Award at SIGIR (2022)</p>
+            <p className="font-serif text-sm">Best Paper Award at CIKM (2020)</p>
+            <p className="font-serif text-sm">Outstanding Video Award at ACL (2023)</p>
+            <p className="font-serif text-sm">PhD in Information Retrieval - RMIT (2024)</p>
+            <p className="font-serif text-sm">13+ Years in AI/ML Industry (2011-present)</p>
+            <p className="font-serif text-sm">Led 40+ Person AI Teams at Tinkoff Bank</p>
           </div>
+        </div>
+
+        {/* Bio */}
+        <div className="space-y-4">
+          <h3 className="font-serif text-lg text-foreground">Bio</h3>
+          <div className="max-w-3xl mx-auto">
+            <p className="font-serif text-base text-muted-foreground leading-relaxed text-left">
+              Valeriia Baranova is an Applied AI specialist with 13+ years of experience in Information Retrieval and Natural Language Processing. 
+              She has delivered high-impact fintech and AI agent systems across startups and Big Tech companies. At Oracle, she focuses on Medical AI applications, 
+              developing cutting-edge solutions for healthcare technology. Valeriia has led large teams of 40+ people and built AI systems from research to deployment. 
+              She holds a PhD in Information Retrieval from RMIT University and has received Best Paper Awards at top-tier conferences including SIGIR and CIKM.
+            </p>
+          </div>
+        </div>
+
+        {/* Actions */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
+          <Button 
+            variant="default" 
+            size="lg"
+            className="font-sans text-sm px-6 py-3"
+            asChild
+          >
+            <a href="#dissertation" className="flex items-center gap-2">
+              <Download className="w-4 h-4" />
+              Download Dissertation
+            </a>
+          </Button>
+          
+          <Button 
+            variant="outline" 
+            size="lg"
+            className="font-sans text-sm px-6 py-3"
+            asChild
+          >
+            <a href="#contact" className="flex items-center gap-2">
+              <Mail className="w-4 h-4" />
+              Contact
+            </a>
+          </Button>
         </div>
       </div>
     </section>
