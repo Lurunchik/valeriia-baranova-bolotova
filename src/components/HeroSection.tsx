@@ -14,7 +14,7 @@ const HeroSection = () => {
         {/* Subtitle */}
         <div className="space-y-3 animate-refined-fade-up" style={{ animationDelay: '0.2s' }}>
           <p className="font-serif text-xl md:text-2xl text-muted-foreground">
-            <TextEncrypt>Specialist in IR/NLP & Medical AI</TextEncrypt>
+            <TextEncrypt>Valeriia Baranova (ex Bolotova)</TextEncrypt>
           </p>
           <p className="font-serif text-lg text-muted-foreground">
             Exploring and propelling new futures of AI<br />
