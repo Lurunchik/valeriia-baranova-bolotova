@@ -50,38 +50,44 @@ const WorkExperienceSection = () => {
   ];
 
   return (
-    <section id="experience" className="py-16 px-6">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl font-serif font-bold text-center mb-12 text-foreground">
-          Work Experience
-        </h2>
-        <div className="space-y-6">
+    <section id="experience" className="py-16 px-6 bg-background border-t border-border">
+      <div className="max-w-4xl mx-auto space-y-12">
+        <div className="space-y-4 animate-fade-up">
+          <h2 className="font-serif text-2xl font-semibold text-foreground">
+            Work Experience
+          </h2>
+        </div>
+
+        <div className="space-y-8">
           {experiences.map((exp, index) => (
-            <Card key={index} className="border border-border">
-              <CardHeader className="pb-4">
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
-                  <div className="flex-1">
-                    <CardTitle className="text-xl font-semibold text-foreground mb-1">
-                      {exp.title}
-                    </CardTitle>
-                    <p className="text-lg font-medium text-primary mb-1">
-                      {exp.company}
-                    </p>
-                    <p className="text-sm text-muted-foreground mb-1">
-                      {exp.period}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {exp.location}
-                    </p>
+            <article 
+              key={index} 
+              className="animate-fade-up border-b border-border pb-6 last:border-b-0"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="space-y-3">
+                {/* Title and Company */}
+                <div className="space-y-2">
+                  <h3 className="font-serif text-lg text-foreground leading-tight">
+                    {exp.title}
+                  </h3>
+                  
+                  <div className="flex items-center gap-3">
+                    <p className="font-sans text-sm text-primary font-medium">{exp.company}</p>
+                    <Badge variant="secondary" className="text-xs font-sans">
+                      {exp.type}
+                    </Badge>
                   </div>
-                  <Badge variant="outline" className="shrink-0">
-                    {exp.type}
-                  </Badge>
+                  
+                  <div className="space-y-1">
+                    <p className="font-sans text-sm text-muted-foreground italic">{exp.period}</p>
+                    <p className="font-sans text-sm text-muted-foreground italic">{exp.location}</p>
+                  </div>
                 </div>
-              </CardHeader>
-              {exp.description && (
-                <CardContent className="pt-0">
-                  <div className="prose prose-sm max-w-none text-muted-foreground">
+
+                {/* Description */}
+                {exp.description && (
+                  <div className="font-sans text-sm text-muted-foreground leading-relaxed">
                     {exp.description.split('\n').map((paragraph, pIndex) => (
                       paragraph.trim() && (
                         <p key={pIndex} className="mb-3 last:mb-0">
@@ -90,18 +96,20 @@ const WorkExperienceSection = () => {
                       )
                     ))}
                   </div>
-                  {exp.skills && (
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      {exp.skills.map((skill, skillIndex) => (
-                        <Badge key={skillIndex} variant="secondary" className="text-xs">
-                          {skill}
-                        </Badge>
-                      ))}
-                    </div>
-                  )}
-                </CardContent>
-              )}
-            </Card>
+                )}
+
+                {/* Skills */}
+                {exp.skills && (
+                  <div className="flex flex-wrap gap-2">
+                    {exp.skills.map((skill, skillIndex) => (
+                      <span key={skillIndex} className="font-sans text-xs text-muted-foreground">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </article>
           ))}
         </div>
       </div>
