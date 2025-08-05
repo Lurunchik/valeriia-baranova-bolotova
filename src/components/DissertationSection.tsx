@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
+import dissertationPdf from "@/assets/s3801280_Baranova_Valeriia_Thesis.pdf";
 
 const DissertationSection = () => {
   return (
@@ -55,9 +56,21 @@ const DissertationSection = () => {
           </div>
 
           <div className="text-center pt-8">
-            <Button variant="default" size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-              <Download className="mr-2 w-4 h-4" />
-              Download Full Dissertation
+            <Button 
+              variant="default" 
+              size="lg" 
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              asChild
+            >
+              <a 
+                href={dissertationPdf} 
+                download="Baranova_Valeriia_Dissertation.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Download className="mr-2 w-4 h-4" />
+                Download Full Dissertation
+              </a>
             </Button>
           </div>
         </div>
