@@ -1,0 +1,128 @@
+name: Test Build Process
+
+on:
+  pull_request:
+    branches: [ main ]
+  push:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Check for linting errors
+        run: npm run lint -- --max-warnings 0
+        continue-on-error: true
+
+      - name: Build application
+        run: npm run build
+
+      - name: Verify build artifacts
+        run: |
+          echo "🔍 Checking build output..."
+          
+          # Check if dist directory exists
+          if [ ! -d "dist" ]; then
+            echo "❌ ERROR: dist directory not found"
+            exit 1
+          fi
+          
+          # Check for required files
+          required_files=("index.html" "favicon.ico" "robots.txt")
+          for file in "${required_files[@]}"; do
+            if [ ! -f "dist/$file" ]; then
+              echo "❌ ERROR: Required file $file not found in dist"
+              exit 1
+            fi
+          done
+          
+          # Check for assets directory
+          if [ ! -d "dist/assets" ]; then
+            echo "❌ ERROR: assets directory not found in dist"
+            exit 1
+          fi
+          
+          # Check for CSS and JS files
+          css_files=$(find dist/assets -name "*.css" | wc -l)
+          js_files=$(find dist/assets -name "*.js" | wc -l)
+          
+          if [ "$css_files" -eq 0 ]; then
+            echo "❌ ERROR: No CSS files found in dist/assets"
+            exit 1
+          fi
+          
+          if [ "$js_files" -eq 0 ]; then
+            echo "❌ ERROR: No JS files found in dist/assets"
+            exit 1
+          fi
+          
+          echo "✅ Build verification passed"
+          echo "📁 Build output structure:"
+          ls -la dist/
+          echo "📦 Assets:"
+          ls -la dist/assets/
+
+      - name: Test build size
+        run: |
+          echo "📊 Build size analysis:"
+          du -sh dist/
+          echo "📁 File sizes:"
+          find dist -type f -exec du -h {} \;
+
+      - name: Comment on PR
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            
+            let comment = '## 🚀 Build Test Results\n\n';
+            
+            // Check if build was successful
+            if (fs.existsSync('dist')) {
+              comment += '✅ **Build successful**\n\n';
+              
+              // List build artifacts
+              const distFiles = fs.readdirSync('dist');
+              comment += '📁 **Build artifacts:**\n';
+              distFiles.forEach(file => {
+                const stats = fs.statSync(path.join('dist', file));
+                if (stats.isDirectory()) {
+                  comment += `- 📂 ${file}/\n`;
+                } else {
+                  comment += `- 📄 ${file}\n`;
+                }
+              });
+              
+              // Check assets
+              if (fs.existsSync('dist/assets')) {
+                const assets = fs.readdirSync('dist/assets');
+                comment += '\n📦 **Assets:**\n';
+                assets.forEach(asset => {
+                  comment += `- ${asset}\n`;
+                });
+              }
+            } else {
+              comment += '❌ **Build failed**\n';
+            }
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            }); 
